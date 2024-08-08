@@ -1,12 +1,8 @@
-.section .text
-.global _start
-
-_start:
+; Infinite loop (e9 fd ff)
 loop:
-    j loop
+    jmp loop 
 
-.section .bss
-.fill 506, 1, 0
-
-.section .data
-.half 0xaa55
+; Fill with 510 zeros minus the size of the previous code
+times 510-($-$$) db 0
+; Magic number
+dw 0xaa55 
